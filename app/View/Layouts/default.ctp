@@ -62,10 +62,14 @@ $(document).ready(function(){
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="<?php echo $this->Html->url('/'); ?>">CakePHP Cart</a>
+				<a class="navbar-brand" href="<?php echo $this->Html->url('/'); ?>">Welcome to AmigoSource</a>
+				<ul class="nav navbar-nav navbar-right">
+					<li><?php echo $this->Html->link('Login', array('controller' => 'admin', 'action' => '')); ?></li>
+					<li><?php echo $this->Html->link('Register', array('controller' => 'admin', 'action' => '')); ?></li>
+				</ul>
 			</div>
 			<div class="collapse navbar-collapse navbar-ex1-collapse">
-				<ul class="nav navbar-nav">
+				<ul class="nav navbar-nav navbar-right">
 					<li><?php echo $this->Html->link('Home', array('controller' => 'products', 'action' => 'view')); ?></li>
 					<li><?php echo $this->Html->link('Products', array('controller' => 'products', 'action' => 'products')); ?></li>
 					<li><?php echo $this->Html->link('Brands', array('controller' => 'brands', 'action' => 'index')); ?></li>
@@ -75,8 +79,8 @@ $(document).ready(function(){
 				<ul class="navbar-form form-inline navbar-right">
 					<?php echo $this->Form->create('Product', array('type' => 'GET', 'url' => array('controller' => 'products', 'action' => 'search'))); ?>
 
-					<?php echo $this->Form->input('search', array('label' => false, 'div' => false, 'class' => 'input-sm', 'autocomplete' => 'off')); ?>
-					<?php echo $this->Form->button('Search', array('div' => false, 'class' => 'btn btn-sm btn-primary')); ?>
+					<?php //echo $this->Form->input('search', array('label' => false, 'div' => false, 'class' => 'input-sm', 'autocomplete' => 'off')); ?>
+					<?php //echo $this->Form->button('Search', array('div' => false, 'class' => 'btn btn-sm btn-primary')); ?>
 					&nbsp;
 					<span id="cartbutton" style="display:none;">
 					<?php echo $this->Html->link('Shopping Cart', array('controller' => 'shop', 'action' => 'cart'), array('class' => 'btn btn-sm btn-success')); ?>
@@ -91,9 +95,6 @@ $(document).ready(function(){
 		<div class="container">
 			<?php echo $this->Session->flash(); ?>
 			<br />
-			<ul class="breadcrumb">
-				<?php echo $this->Html->link('Home', array('controller' => 'products', 'action' => 'index')); ?> / <?php echo $this->Html->getCrumbs(' / '); ?>
-			</ul>
 			<?php echo $this->fetch('content'); ?>
 			<br />
 			<div id="msg"></div>
@@ -103,21 +104,10 @@ $(document).ready(function(){
 
 	<div class="footer">
 		<div class="container">
-			<?php echo $this->Html->link($this->Html->image('cake.power.gif', array('alt' => 'CakePHP', 'border' => 0)), 'http://www.cakephp.org/', array('target' => '_blank', 'escape' => false)); ?>
-			<br />
-			<?php echo $this->Html->link('CakePHP Shopping Cart - github.com/andraskende/cakephp-shopping-cart', 'https://github.com/andraskende/cakephp-shopping-cart'); ?>
-			<br />
-			<?php echo $this->Html->link('www.shoppingcartcore.com', 'http://www.shoppingcartcore.com'); ?> - <?php echo $this->Html->link('www.kende.com', 'http://www.kende.com'); ?>
-			<br />
 			&copy; <?php echo date('Y'); ?> <?php echo env('HTTP_HOST'); ?>
 			<br />
 			<br />
 		</div>
 	</div>
-
-	<div class="debug">
-		<?php echo $this->element('sql_dump'); ?>
-	</div>
-
 </body>
 </html>
